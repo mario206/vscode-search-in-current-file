@@ -1,17 +1,17 @@
 {
-  "name": "search-in-current-file",
-  "displayName": "Search in Current File",
+  "name": "search-in-current-file-plus",
+  "displayName": "Search in Current File Plus",
   "description": "Search only in the current file",
-  "version": "0.0.2",
-  "publisher": "shibayu36",
+  "version": "0.0.1",
+  "publisher": "mario-0",
   "engines": {
     "vscode": "^1.46.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shibayu36/vscode-search-in-current-file"
+    "url": "https://github.com/mario206/vscode-search-in-current-file"
   },
-  "homepage": "https://github.com/shibayu36/vscode-search-in-current-file",
+  "homepage": "https://github.com/mario206/vscode-search-in-current-file",
   "categories": [
     "Other"
   ],
@@ -24,6 +24,10 @@
       {
         "command": "search-in-current-file.searchInCurrentFile",
         "title": "Search in Current File"
+      },
+      {
+        "command": "search-in-current-file.searchInAllFiles",
+        "title": "Search in All File"
       }
     ]
   },

@@ -8,7 +8,15 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  let disposable2 = vscode.commands.registerCommand(
+    "search-in-current-file.searchInAllFiles",
+    async () => {
+      await searchInAlltFiles();
+    }
+  );
+
   context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable2)
 }
 
 export function deactivate() {}
@@ -26,5 +34,22 @@ async function searchInCurrentFile(): Promise<void> {
     // Fill-in selected text to query
     query: activeEditor.document.getText(activeEditor.selection),
     filesToInclude: currentFilePath,
+  });
+}
+
+async function searchInAlltFiles(): Promise<void> {
+
+  let selection = "";
+
+  const activeEditor = vscode.window.activeTextEditor;
+  if(activeEditor)
+  {
+    selection = activeEditor.document.getText(activeEditor.selection)
+  }
+
+  await vscode.commands.executeCommand("workbench.action.findInFiles", {
+    query: selection,
+    filesToInclude: "",
+    //onlyOpenEditors : false,
   });
 }
