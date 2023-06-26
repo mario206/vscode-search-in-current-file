@@ -27,25 +27,45 @@ async function searchInCurrentFile(): Promise<void> {
     return;
   }
 
+  var selection = getQueryFromTextEditor();
+
   const currentFilePath = vscode.workspace.asRelativePath(
     activeEditor.document.uri
   );
   await vscode.commands.executeCommand("workbench.action.findInFiles", {
     // Fill-in selected text to query
-    query: activeEditor.document.getText(activeEditor.selection),
+    query: selection,
     filesToInclude: currentFilePath,
   });
 }
 
+function getQueryFromTextEditor()
+{
+    var selection = "";
+    const activeEditor = vscode.window.activeTextEditor;
+    if(activeEditor)
+    {
+      selection = activeEditor.document.getText(activeEditor.selection)
+      if(selection == "")
+      {
+        const range = activeEditor.document.getWordRangeAtPosition(activeEditor.selection.active,/\S+/);
+      
+        if (range) {
+            // then you can get the word that's there:
+            const word = activeEditor.document.getText(range); // get the word at the range
+            selection = word;
+            // or modify the selection if that's really your goal:
+            //vscode.window.activeTextEditor.selection = new vscode.Selection(range.start, range.end);
+        }
+      }
+    }
+
+    return selection;
+}
+
 async function searchInAlltFiles(): Promise<void> {
 
-  let selection = "";
-
-  const activeEditor = vscode.window.activeTextEditor;
-  if(activeEditor)
-  {
-    selection = activeEditor.document.getText(activeEditor.selection)
-  }
+  let selection = getQueryFromTextEditor();
 
   await vscode.commands.executeCommand("workbench.action.findInFiles", {
     query: selection,

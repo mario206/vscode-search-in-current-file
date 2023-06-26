@@ -33,3 +33,10 @@ Search all Files : `cmd+shift+f`
     "when": "editorFocus || editorIsOpen"
 }
 ```
+
+## Publish
+```
+$ cd myExtension
+$ vsce package
+# upload *.vsix to https://marketplace.visualstudio.com/manage/publishers/
+```
