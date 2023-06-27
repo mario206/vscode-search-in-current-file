@@ -31,7 +31,16 @@ Search all Files : `cmd+shift+f`
     "key": "cmd+f",
     "command": "-actions.find",
     "when": "editorFocus || editorIsOpen"
+},
+{
+    "key":"cmd+;",
+    "command":"search-in-current-file.goBack"
+},
+{
+    "key": "cmd+'",
+    "command": "search-in-current-file.goForward",
 }
+
 ```
 
 ## Publish
