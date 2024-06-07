@@ -109,6 +109,7 @@ async function doQuery(query : string,filesToInclude:string,pushHistory:boolean)
   await vscode.commands.executeCommand("workbench.action.findInFiles", {
     query: query,
     filesToInclude: filesToInclude,
+    useExcludeSettingsAndIgnoreFiles : true
   });
 
   if(pushHistory)
