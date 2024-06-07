@@ -1,0 +1,7 @@
+### Ctrl + F  : Search In Current File
+### Cmd + Shift + F : Search In WorkSpace
+
+File 1
+File 1 
+File 1
+

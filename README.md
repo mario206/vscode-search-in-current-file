@@ -1,6 +1,6 @@
 # Search in Current File Plus
 
-This is a Visual Studio Code extension that makes it easily to search in current active editor.  It is inspired by the emacs extension helm-occur.
+Makes it easy to search between the 'current file' and the 'workspace' using the keyboard shortcuts 'Cmd + F' or 'Cmd + Shift + F'.
 
 ![Demo](images/demo.gif)
 
@@ -22,29 +22,12 @@ Search all Files : `cmd+shift+f`
   {
     "key": "shift+cmd+f",
     "command": "search-in-current-file.searchInAllFiles",
-},
-{
-    "key": "shift+cmd+m",
-    "command": "workbench.action.findInFiles"
-},
-{
-    "key": "cmd+f",
-    "command": "-actions.find",
-    "when": "editorFocus || editorIsOpen"
-},
-{
-    "key":"cmd+;",
-    "command":"search-in-current-file.goBack"
-},
-{
-    "key": "cmd+'",
-    "command": "search-in-current-file.goForward",
 }
-
 ```
 
 ## Publish
 ```
+yarn install
 $ cd myExtension
 $ vsce package
 # upload *.vsix to https://marketplace.visualstudio.com/manage/publishers/
